@@ -19,8 +19,6 @@ func ReturnTime(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte(fmt.Sprintf("That timezone is not valid %s", tz)))
 		} else {
 			response[loc.String()] = time.Now().In(loc).String()
-			w.Header().Add("Content-Type", "application/json")
-			json.NewEncoder(w).Encode(response)
 		}
 	} else {
 		for _, zone := range timezones {
@@ -32,7 +30,8 @@ func ReturnTime(w http.ResponseWriter, r *http.Request) {
 				response[loc.String()] = time.Now().In(loc).String()
 			}
 		}
-		w.Header().Add("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(response)
 	}
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+
 }
