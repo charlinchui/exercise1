@@ -10,6 +10,6 @@ import (
 func Router() http.Handler {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/api/time", handlers.ReturnTime)
+	router.HandleFunc("/api/time", handlers.ReturnTime).Methods(http.MethodGet)
 	return router
 }
