@@ -2,9 +2,11 @@
 
 To run:
 
-1. ```bash
+1.
+```bash
 make run
 ```
-2. ```
+2.
+```bash
 go run cmd/main/*.go
 ```
